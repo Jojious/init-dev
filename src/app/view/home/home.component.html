@@ -1,0 +1,60 @@
+<mat-toolbar class="app-header">
+  <div><a href="#" target="_blank" class="positronx">LOGO</a></div>
+  <span class="nav-tool-items positronx">
+    <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="/register"
+      routerLinkActive="active"
+      >Register</a
+    >
+  </span>
+</mat-toolbar>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Home</mat-card-title>
+    </mat-card-header>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+</div>
+
+<nav class="bottom-nav">
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/login" routerLinkActive="active">
+    <div class="bottom-nav__icon" viewBox="0 0 24 24">
+      <mat-icon  aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+    </div>
+    <span class="bottom-nav__label">Home</span>
+  </a>
+
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/login" routerLinkActive="active">
+    <div class="bottom-nav__icon" viewBox="0 0 24 24">
+      <mat-icon  aria-hidden="false" aria-label="Example home icon">room_service</mat-icon>
+    </div>
+    <span class="bottom-nav__label">Service</span>
+  </a>
+
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/login" routerLinkActive="active">
+    <div class="bottom-nav__icon" viewBox="0 0 24 24">
+      <mat-icon  aria-hidden="false" aria-label="Example home icon">build</mat-icon>
+    </div>
+    <span class="bottom-nav__label">Product</span>
+  </a>
+
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/login" routerLinkActive="active">
+    <div class="bottom-nav__icon" viewBox="0 0 24 24">
+      <mat-icon  aria-hidden="false" aria-label="Example home icon">reorder</mat-icon>
+    </div>
+    <span class="bottom-nav__label">About</span>
+  </a>
+
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/login" routerLinkActive="active">
+    <div class="bottom-nav__icon" viewBox="0 0 24 24">
+      <mat-icon  aria-hidden="false" aria-label="Example home icon">contact_support</mat-icon>
+    </div>
+    <span class="bottom-nav__label">Contact</span>
+  </a>
+
+</nav>

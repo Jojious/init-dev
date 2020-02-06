@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header class="card-header">
+      <mat-card-title>Build Sale Page</mat-card-title>
+      <mat-card-subtitle>create your sale page website</mat-card-subtitle>
+      <button (click)="exportHtml()" mat-raised-button color="primary">Publish</button>
+    </mat-card-header>
+    <mat-card-actions>
+      <email-editor (loaded)="editorLoaded($event)"></email-editor>
+      <button (click)="saveDesign()" class="fab-bottom-right" color="primary" mat-fab><mat-icon>save</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

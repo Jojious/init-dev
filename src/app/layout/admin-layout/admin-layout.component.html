@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    attr.role="navigation"
+    mode="side"
+    opened="false"
+  >
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="admin-header">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      Admin Page
+      <span class="toolbar-spacer"></span>
+      <button mat-button (click)="gotohome()">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          class="icon"
+          >dashboard</mat-icon
+        >
+      </button>
+      <button mat-button [matMenuTriggerFor]="aboveMenu">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          class="icon"
+          >supervisor_account</mat-icon
+        >
+      </button>
+      <mat-menu #aboveMenu="matMenu" yPosition="above">
+        <button (click) = "signOut()" mat-menu-item>Log out</button>
+      </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

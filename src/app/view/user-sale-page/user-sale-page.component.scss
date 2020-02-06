@@ -1,0 +1,28 @@
+.container{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #97B1AA
+}
+.card {
+  margin-top: auto;
+  height: 75%;
+  width: 80%;
+  background-color: whitesmoke;
+  color: #354B46;
+}
+.card-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.fab-bottom-right {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+}

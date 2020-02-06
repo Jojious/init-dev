@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="ค้นหา">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-hint>ค้นหารายชื่อสมาชิก</mat-hint>
+        </mat-form-field>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+        </ng-container>
+        <!-- Tel Column -->
+        <ng-container matColumnDef="tel">
+          <mat-header-cell *matHeaderCellDef> Tel. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tel}} </mat-cell>
+        </ng-container>
+        <!-- line Column -->
+        <ng-container matColumnDef="line">
+          <mat-header-cell *matHeaderCellDef> Line ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.line}} </mat-cell>
+        </ng-container>
+        <!-- email Column -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+        <!-- recommender Column -->
+        <ng-container matColumnDef="recomment">
+          <mat-header-cell *matHeaderCellDef> recommender </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.recomment}} </mat-cell>
+        </ng-container>
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+          <mat-cell *matCellDef="let element" >
+            <span *ngIf="element.status === 'Active'" style="color: green;">{{element.status}}</span>
+            <span *ngIf="element.status === 'Inactive'" style="color: red;">{{element.status}}</span>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="color: gray;">
+            <button (click)="openDialog('Update',element)" mat-icon-button aria-label="Example icon-button with a heart icon">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
+  </div>
+

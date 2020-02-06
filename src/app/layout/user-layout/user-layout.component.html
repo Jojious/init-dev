@@ -1,0 +1,23 @@
+<mat-toolbar class="app-header">
+  <div><a href="#" target="_blank" class="positronx">Sale Page</a></div>
+  <span class="nav-tool-items positronx">
+    <a
+      mat-button
+      routerLink="/admin/dashboard"
+      routerLinkActive="active"
+      *ngIf="isAdmin"
+      >Admin</a
+    >
+    <button mat-button [matMenuTriggerFor]="aboveMenu">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon"
+        >supervisor_account</mat-icon
+      >
+    </button>
+    <mat-menu #aboveMenu="matMenu" yPosition="above">
+      <button (click)="logout()" mat-menu-item>Log out</button>
+    </mat-menu>
+  </span>
+</mat-toolbar>
+<div class="login-wrapper" >
+  <router-outlet></router-outlet>
+</div>

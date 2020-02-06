@@ -1,0 +1,30 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Approve Member</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate" style="margin: 15px;">
+    <input disabled placeholder="username" matInput [(ngModel)]="localdata.username">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate" style="margin: 15px;">
+    <input  placeholder="line id" matInput [(ngModel)]="localdata.line">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate" style="margin: 15px;">
+    <input  placeholder="Tel." matInput [(ngModel)]="localdata.tel">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate" style="margin: 15px;">
+    <input  placeholder="email" matInput [(ngModel)]="localdata.email">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate" style="margin: 15px;">
+    <mat-select placeholder="status" [(ngModel)]="localdata.status" name="items">
+      <mat-option *ngFor="let item of items" [value]="item.value">
+        {{item.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{localdata.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions class="footer">
+  <button mat-button (click)="doAction()" mat-flat-button color="primary">Edit</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancle</button>
+</div>

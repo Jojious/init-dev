@@ -1,0 +1,6 @@
+<mat-nav-list *ngFor="let menuItem of menuItems" routerLinkActive="active" >
+  <a mat-list-item [routerLink]="[menuItem.path]" class="nav-list">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">{{menuItem.icon}}</mat-icon>
+    <p>{{ menuItem.title }}</p>
+  </a>
+</mat-nav-list>
