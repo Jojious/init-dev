@@ -1,35 +1,110 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SalepageService } from '@app/services/nosql/salepage.service';
+import { EmailEditor, TypeSalePage } from '@app/models';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '@app/services';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  htmlabout: EmailEditor[];
+  htmlcontact: EmailEditor[];
+  htmlservice: EmailEditor[];
+  htmlproduct: EmailEditor[];
+  htmlcodeabout: SafeHtml;
+  htmlcodecontact: SafeHtml;
+  htmlcodeservice: SafeHtml;
+  htmlcodeproduct: SafeHtml;
+  service = 'service_page';
+  about = 'about_page';
+  contact = 'contact_page';
+  product = 'product_page';
+  step = 0;
+  user: string;
+
+  constructor(
+    private salepageService: SalepageService,
+    private sanitizer: DomSanitizer,
+    private route: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
   ngOnInit() {
+    this.salepageService.getAdminEditor('about_page').subscribe(data => {
+      this.htmlabout = data.map(e => {
+        return {
+          ...(e.payload.doc.data() as {})
+        } as EmailEditor;
+      });
+      this.setupcode(this.htmlabout[0].html, 'about_page');
+    });
+    this.salepageService.getAdminEditor('contact_page').subscribe(data => {
+      this.htmlcontact = data.map(e => {
+        return {
+          ...(e.payload.doc.data() as {})
+        } as EmailEditor;
+      });
+      this.setupcode(this.htmlcontact[0].html, 'contact_page');
+    });
+    this.salepageService.getAdminEditor('product_page').subscribe(data => {
+      this.htmlproduct = data.map(e => {
+        return {
+          ...(e.payload.doc.data() as {})
+        } as EmailEditor;
+      });
+      this.setupcode(this.htmlproduct[0].html, 'product_page');
+    });
+    this.salepageService.getAdminEditor('service_page').subscribe(data => {
+      this.htmlservice = data.map(e => {
+        return {
+          ...(e.payload.doc.data() as {})
+        } as EmailEditor;
+      });
+      this.setupcode(this.htmlservice[0].html, 'service_page');
+    });
+    this.user = this.authenticationService.currentUserValue.role;
+    console.log(this.user)
+  }
+  setStep(index: number) {
+    this.step = index;
   }
 
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
+  setupcode(code: string, type: string) {
+    switch (type) {
+      case 'about_page':
+        this.htmlcodeabout = this.sanitizer.bypassSecurityTrustHtml(code);
+        break;
+      case 'contact_page':
+        this.htmlcodecontact = this.sanitizer.bypassSecurityTrustHtml(code);
+        break;
+      case 'product_page':
+        this.htmlcodeproduct = this.sanitizer.bypassSecurityTrustHtml(code);
+        break;
+      case 'service_page':
+        this.htmlcodeservice = this.sanitizer.bypassSecurityTrustHtml(code);
+        break;
+      default:
+        break;
+    }
+  }
+
+  openEditor(type: TypeSalePage) {
+    console.log(type);
+    this.route.navigate(['/admin/adminseditor', type]);
+  }
+  onclick() {
+    alert('TEst Edit');
+  }
 }

@@ -1,1 +1,30 @@
-<p>salepage works!</p>
+<div class="container">
+  <mat-card class="card-container">
+    <mat-list>
+      <h3 mat-subheader>Member</h3>
+      <mat-list-item *ngFor="let sale of salepages">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          mat-icon-button
+          aria-label="Example icon-button with a heart icon"
+        >
+          <mat-icon mat-list-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="action('view', sale)">
+            <mat-icon>visibility</mat-icon>
+            <span>View</span>
+          </button>
+          <button *ngIf="user != 'User'" mat-menu-item (click)="action('edit', sale)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+        </mat-menu>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line>{{ sale.owner }}</h4>
+        <a mat-line>{{ sale.link }}</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

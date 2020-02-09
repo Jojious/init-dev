@@ -6,6 +6,8 @@ import { HomepageComponent } from '@app/view/admin/homepage/homepage.component';
 import { SalepageComponent as AdminSalePage } from '@app/view/admin/salepage/salepage.component';
 import { FileComponent } from '@app/view/admin/file/file.component';
 import { SettingComponent } from '@app/view/admin/setting/setting.component';
+import { EditorComponent } from '@app/components/homepage/editor/editor.component';
+import { EditorComponent as SalePageEditor } from '@app/components/salepage/editor/editor.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -14,5 +16,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'adminhomepage', component: HomepageComponent },
   { path: 'adminsalepage', component: AdminSalePage },
   { path: 'adminfile', component: FileComponent },
-  { path: 'adminsetting', component: SettingComponent }
+  { path: 'adminsetting', component: SettingComponent },
+  { path: 'adminseditor/:type', component: EditorComponent },
+  { path: 'salePageEditor/:username', component: SalePageEditor }
 ];

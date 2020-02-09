@@ -7,13 +7,13 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/admin/dashboard', title: 'Dashboard', icon: 'dashboard'},
+  // { path: '/admin/dashboard', title: 'Dashboard', icon: 'dashboard'},
   // { path: '/admin/salepage', title: 'Create Sale Page', icon: 'desktop_mac'},
   { path: '/admin/checkregister', title: 'Check Register', icon: 'accessibility'},
   { path: '/admin/adminhomepage', title: 'Home Page', icon: 'home'},
   { path: '/admin/adminsalepage', title: 'Sale Page', icon: 'shop'},
   { path: '/admin/adminfile', title: 'File', icon: 'attach_file'},
-  { path: '/admin/adminsetting', title: 'Setting', icon: 'settings'}
+  // { path: '/admin/adminsetting', title: 'Setting', icon: 'settings'}
 ];
 
 @Component({

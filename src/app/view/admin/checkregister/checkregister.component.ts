@@ -3,7 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SalepageService } from '@app/services/nosql/salepage.service';
 import { Member } from '@app/models';
 import { MatDialog } from '@angular/material';
-import { DialogBoxComponent } from '@app/components/dialog-box/dialog-box.component';
+import { DialogBoxComponent } from '@app/components/homepage/dialog-box/dialog-box.component';
+import { AuthenticationService } from '@app/services';
 
 @Component({
   selector: 'app-checkregister',
@@ -22,10 +23,11 @@ export class CheckregisterComponent implements OnInit {
   ];
   dtMember: Member[];
   dataSource = new MatTableDataSource([]);
-
+  user: string;
   constructor(
     private salepageService: SalepageService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class CheckregisterComponent implements OnInit {
           };
         }) || [];
     });
+    this.user = this.authenticationService.currentUserValue.role;
   }
   openDialog(action, obj) {
     obj.action = action;

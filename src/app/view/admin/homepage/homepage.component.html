@@ -1,53 +1,131 @@
 <div class="container">
-  <mat-list class="list-container">
-    <mat-divider></mat-divider>
-    <h6 style="color: gray;">Service</h6>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <mat-accordion class="example-headers-align list-container">
+    <mat-expansion-panel
+      [expanded]="step === 0"
+      (opened)="setStep(0)"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Service
+        </mat-panel-title>
+        <mat-panel-description>
+          Design Service Page
+          <mat-icon>pages</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <a
+          *ngIf="user != 'User'"
+          mat-button
+          style="color: #0075A1;"
+          [routerLink] = "['/admin/adminseditor', service]"
+          routerLinkActive="active"
+          ><mat-icon>edits</mat-icon>Edit</a
+        >
+        <mat-divider> </mat-divider>
+        <div [innerHTML]="htmlcodeservice"></div>
+      </div>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Product</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
+    <mat-expansion-panel
+      [expanded]="step === 1"
+      (opened)="setStep(1)"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Product
+        </mat-panel-title>
+        <mat-panel-description>
+          Design Product Page
+          <mat-icon>label</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <a
+        *ngIf="user != 'User'"
+          mat-button
+          style="color: #0075A1;"
+          [routerLink] = "['/admin/adminseditor', product]"
+          routerLinkActive="active"
+          ><mat-icon>edits</mat-icon>Edit</a
+        >
+        <mat-divider> </mat-divider>
+        <div [innerHTML]="htmlcodeproduct"></div>
+      </div>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Service</button>
+        <button mat-button color="primary" (click)="nextStep()">About</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
+    <mat-expansion-panel
+      [expanded]="step === 2"
+      (opened)="setStep(2)"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          About
+        </mat-panel-title>
+        <mat-panel-description>
+          Design About Page
+          <mat-icon>question_answer</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <a
+        *ngIf="user != 'User'"
+          mat-button
+          style="color: #0075A1;"
+          [routerLink] = "['/admin/adminseditor', about]"
+          routerLinkActive="active"
+          ><mat-icon>edits</mat-icon>Edit</a
+        >
+        <mat-divider> </mat-divider>
+        <div [innerHTML]="htmlcodeabout"></div>
+      </div>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Product</button>
+        <button mat-button color="primary" (click)="nextStep()">Contact</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <h6 style="color: gray;">Product</h6>
-    <mat-card>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
-    <h6 style="color: gray;">About</h6>
-    <mat-card>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
-    <h6 style="color: gray;">Contact</h6>
-    <mat-card>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
-  </mat-list>
+    <mat-expansion-panel
+      [expanded]="step === 3"
+      (opened)="setStep(3)"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contact
+        </mat-panel-title>
+        <mat-panel-description>
+          Design Contact Page
+          <mat-icon>perm_contact_calendar</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <a
+        *ngIf="user != 'User'"
+          mat-button
+          style="color: #0075A1;"
+          [routerLink] = "['/admin/adminseditor', contact]"
+          routerLinkActive="active"
+          ><mat-icon>edits</mat-icon>Edit</a
+        >
+        <mat-divider> </mat-divider>
+        <div [innerHTML]="htmlcodecontact"></div>
+      </div>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">About</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

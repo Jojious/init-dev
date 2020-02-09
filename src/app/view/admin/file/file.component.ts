@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SalepageService } from '@app/services/nosql/salepage.service';
 
 @Component({
   selector: 'app-file',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./file.component.scss']
 })
 export class FileComponent implements OnInit {
+  file: any;
 
-  constructor() { }
+  constructor(private service: SalepageService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  handing(event: { target: { files: any[] } }) {
+    this.file = event.target.files[0];
   }
 
+  upload() {
+    this.service.uploadFile(this.file);
+  }
 }

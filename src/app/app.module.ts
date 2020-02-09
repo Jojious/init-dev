@@ -18,14 +18,17 @@ import { environment } from '@environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
 import { HomeComponent } from './view/home/home.component';
 import { ServicesComponent } from './view/services/services.component';
 import { ProductComponent } from './view/product/product.component';
 import { AboutComponent } from './view/about/about.component';
 import { ContactComponent } from './view/contact/contact.component';
-
-
+import { HomecontactComponent } from './components/homepage/homecontact/homecontact.component';
+import { HomeaboutComponent } from './components/homepage/homeabout/homeabout.component';
+import { HomeproductComponent } from './components/homepage/homeproduct/homeproduct.component';
+import { HomeserviceComponent } from './components/homepage/homeservice/homeservice.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,10 @@ import { ContactComponent } from './view/contact/contact.component';
     ProductComponent,
     AboutComponent,
     ContactComponent,
+    HomecontactComponent,
+    HomeaboutComponent,
+    HomeproductComponent,
+    HomeserviceComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,8 @@ import { ContactComponent } from './view/contact/contact.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

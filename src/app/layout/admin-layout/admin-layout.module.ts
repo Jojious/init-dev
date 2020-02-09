@@ -10,12 +10,14 @@ import { DashboardComponent } from '@app/view/dashboard/dashboard.component';
 import { SalepageComponent } from '@app/view/salepage/salepage.component';
 import { EmailEditorModule } from 'angular-email-editor';
 import { AngularMaterialModule } from '@app/plugin/material/angular-material.module';
-import { DialogBoxComponent } from '@app/components/dialog-box/dialog-box.component';
+import { DialogBoxComponent } from '@app/components/homepage/dialog-box/dialog-box.component';
 import { CheckregisterComponent } from '@app/view/admin/checkregister/checkregister.component';
 import { HomepageComponent } from '@app/view/admin/homepage/homepage.component';
-import { SalepageComponent as AdminSalePage } from '@app/view/admin/salepage/salepage.component';
+import { SalepageComponent as AdminSalePage, DialogDataExampleDialog } from '@app/view/admin/salepage/salepage.component';
 import { FileComponent } from '@app/view/admin/file/file.component';
 import { SettingComponent } from '@app/view/admin/setting/setting.component';
+import { EditorComponent } from '@app/components/homepage/editor/editor.component';
+import { EditorComponent as SalePageEditor } from '@app/components/salepage/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { SettingComponent } from '@app/view/admin/setting/setting.component';
     HomepageComponent,
     AdminSalePage,
     FileComponent,
-    SettingComponent
+    SettingComponent,
+    EditorComponent,
+    SalePageEditor,
+    DialogDataExampleDialog,
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,7 @@ import { SettingComponent } from '@app/view/admin/setting/setting.component';
     EmailEditorModule,
     AngularMaterialModule
   ],
-  entryComponents: [DialogBoxComponent]
+  entryComponents: [DialogBoxComponent, DialogDataExampleDialog]
 })
 export class AdminLayoutModule {
   isHandset$: Observable<boolean> = this.breakpointObserver

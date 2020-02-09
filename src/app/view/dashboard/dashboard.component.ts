@@ -5,7 +5,7 @@ import { SalepageService } from '@app/services/nosql/salepage.service';
 import { Codehtml, Member, Role } from '@app/models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { MatDialog, MatTable } from '@angular/material';
-import { DialogBoxComponent } from '@app/components/dialog-box/dialog-box.component';
+import { DialogBoxComponent } from '@app/components/homepage/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-dashboard',

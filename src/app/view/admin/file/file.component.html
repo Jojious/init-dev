@@ -1,1 +1,14 @@
-<p>file works!</p>
+<div class="container">
+  <mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title>Please Input File</mat-card-title>
+      <mat-card-subtitle>upload file mp4, pdf, xlsx</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="file" (change)="handing($event)" accept=".png,.jpg,.pdf,.xlsx,.mp4" />
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button (click)="upload()" color="accent">Upload</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

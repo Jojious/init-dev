@@ -15,30 +15,27 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="card">
     <mat-card-content>
-      <div [innerHTML]="htmlcodeservice"></div>
-      <div [innerHTML]="htmlcodeproduct"></div>
-      <div [innerHTML]="htmlcodeabout"></div>
-      <div [innerHTML]="htmlcodecontact"></div>
+      <div [innerHTML]="html"></div>
     </mat-card-content>
   </mat-card>
 </div>
 
 <nav class="bottom-nav">
-  <a class="bottom-nav__action bottom-nav__action--active" style="color: blue;" routerLink="/home" routerLinkActive="active">
+  <a class="bottom-nav__action bottom-nav__action--active" routerLink="/home" routerLinkActive="active">
     <div class="bottom-nav__icon" viewBox="0 0 24 24">
       <mat-icon  aria-hidden="false" aria-label="Example home icon">home</mat-icon>
     </div>
     <span class="bottom-nav__label">Home</span>
   </a>
 
-  <a class="bottom-nav__action bottom-nav__action--active" routerLink = "/homeservice" routerLinkActive="active">
+  <a class="bottom-nav__action bottom-nav__action--active"  routerLink = "/homeservice" routerLinkActive="active">
     <div class="bottom-nav__icon" viewBox="0 0 24 24">
       <mat-icon  aria-hidden="false" aria-label="Example home icon">room_service</mat-icon>
     </div>
     <span class="bottom-nav__label">Service</span>
   </a>
 
-  <a class="bottom-nav__action bottom-nav__action--active" routerLink = "/homeproduct" routerLinkActive="active">
+  <a class="bottom-nav__action bottom-nav__action--active" style="color: blue;" routerLink = "/homeproduct" routerLinkActive="active">
     <div class="bottom-nav__icon" viewBox="0 0 24 24">
       <mat-icon  aria-hidden="false" aria-label="Example home icon">build</mat-icon>
     </div>
