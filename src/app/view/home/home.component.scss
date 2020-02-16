@@ -1,3 +1,38 @@
 .card{
-  width: 70%;
+  width: 80%;
+  padding-top: 700;
+}
+.container{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer {
+    background-color: #023075;
+    color:#fff
+}
+.main-content {
+    padding:40px;
+    height: auto;
+    background-color:#97B1AA;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+.header {
+  justify-content: space-between;
+  background-color: #5BB9A7;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }

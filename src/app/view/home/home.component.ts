@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SalepageService } from '@app/services/nosql/salepage.service';
-import { EmailEditor, TypeSalePage } from '@app/models';
+import { EmailEditor, TypeSalePage, SalePage } from '@app/models';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,10 +12,13 @@ export class HomeComponent implements OnInit {
   htmlcontact: EmailEditor[];
   htmlservice: EmailEditor[];
   htmlproduct: EmailEditor[];
+  htmlsalepage: SalePage[];
   htmlcodeabout: SafeHtml;
   htmlcodecontact: SafeHtml;
   htmlcodeservice: SafeHtml;
   htmlcodeproduct: SafeHtml;
+  htmlcodesalepage: SafeHtml;
+  paramsalepage: string;
   paramservice: string;
   paramabout: string;
   paramcontact: string;
@@ -59,6 +62,14 @@ export class HomeComponent implements OnInit {
       });
       this.setupcode(this.htmlservice[0].html, 'service_page');
     });
+    this.salepageService.getsalepageowner('wisa').subscribe(data => {
+      this.htmlsalepage = data.map(e => {
+        return {
+          ...(e.payload.doc.data() as {})
+        } as SalePage;
+      });
+      this.setupcode(this.htmlsalepage[0].html, 'salepage');
+    });
   }
   setupcode(code: string, type: string) {
     switch (type) {
@@ -77,6 +88,10 @@ export class HomeComponent implements OnInit {
       case 'service_page':
         this.paramservice = code;
         this.htmlcodeservice = this.sanitizer.bypassSecurityTrustHtml(code);
+        break;
+      case 'salepage':
+        this.paramsalepage = code;
+        this.htmlcodesalepage = this.sanitizer.bypassSecurityTrustHtml(code);
         break;
       default:
         break;

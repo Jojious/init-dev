@@ -1,29 +1,54 @@
-<mat-toolbar class="app-header">
-  <div><a href="#" target="_blank" class="positronx">LOGO</a></div>
-  <span class="nav-tool-items positronx">
-    <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
-    <a
-      mat-button
-      mat-raised-button
-      routerLink="/register"
-      routerLinkActive="active"
-      >Register</a
-    >
-  </span>
-</mat-toolbar>
-
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="card">
-    <mat-card-content>
+<!-- <div class="container">
+  <mat-toolbar class="app-header">
+    <div><a href="#" target="_blank" class="positronx">LOGO</a></div>
+    <span class="nav-tool-items positronx">
+      <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
+      <a
+        mat-button
+        mat-raised-button
+        routerLink="/register"
+        routerLinkActive="active"
+        >Register</a
+      >
+    </span>
+  </mat-toolbar>
+    <div class="card">
       <div [innerHTML]="htmlcodeservice"></div>
-      <div [innerHTML]="htmlcodeproduct"></div>
-      <div [innerHTML]="htmlcodeabout"></div>
-      <div [innerHTML]="htmlcodecontact"></div>
-    </mat-card-content>
-  </mat-card>
-</div>
+        <div [innerHTML]="htmlcodeproduct"></div>
+        <div [innerHTML]="htmlcodeabout"></div>
+        <div [innerHTML]="htmlcodecontact"></div>
+    </div>
+</div> -->
+<mat-sidenav-container fullscreen>
+  <mat-sidenav-content>
+    <mat-toolbar class="header">
+      <div><a href="#" target="_blank" class="positronx">LOGO</a></div>
+      <span class="nav-tool-items positronx">
+        <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
+        <a
+          mat-button
+          mat-raised-button
+          routerLink="/register"
+          routerLinkActive="active"
+          >Register</a
+        >
+      </span>
+    </mat-toolbar>
+    <div class="main-content">
+      <div [innerHTML]="htmlcodeservice"></div>
+        <div [innerHTML]="htmlcodeproduct"></div>
+        <div [innerHTML]="htmlcodesalepage"></div>
+        <div [innerHTML]="htmlcodeabout"></div>
+        <div [innerHTML]="htmlcodecontact"></div>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-<nav class="bottom-nav">
+
+
+
+<!-- <nav class="bottom-nav">
   <a class="bottom-nav__action bottom-nav__action--active" style="color: blue;" routerLink="/home" routerLinkActive="active">
     <div class="bottom-nav__icon" viewBox="0 0 24 24">
       <mat-icon  aria-hidden="false" aria-label="Example home icon">home</mat-icon>
@@ -59,4 +84,4 @@
     <span class="bottom-nav__label">Contact</span>
   </a>
 
-</nav>
+</nav> -->

@@ -5,18 +5,23 @@
     fixedInViewport
     attr.role="navigation"
     mode="side"
-    opened="false"
+    opened="true"
   >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <app-side-nav></app-side-nav>
   </mat-sidenav>
   <mat-sidenav-content style="background-color: #DBE5DE;">
     <mat-toolbar class="admin-header">
-      <button
+      <!-- <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
+      > -->
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
