@@ -29,6 +29,7 @@ import { HomecontactComponent } from './components/homepage/homecontact/homecont
 import { HomeaboutComponent } from './components/homepage/homeabout/homeabout.component';
 import { HomeproductComponent } from './components/homepage/homeproduct/homeproduct.component';
 import { HomeserviceComponent } from './components/homepage/homeservice/homeservice.component';
+import { MatFormioModule } from 'angular-material-formio';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { HomeserviceComponent } from './components/homepage/homeservice/homeserv
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatFormioModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

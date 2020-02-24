@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SalepageService } from '@app/services/nosql/salepage.service';
 import { EmailEditor, TypeSalePage, SalePage } from '@app/models';
@@ -8,6 +8,7 @@ import { EmailEditor, TypeSalePage, SalePage } from '@app/models';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('json', {static: false}) jsonElement?: ElementRef;
   htmlabout: EmailEditor[];
   htmlcontact: EmailEditor[];
   htmlservice: EmailEditor[];
@@ -28,7 +29,10 @@ export class HomeComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private salepageService: SalepageService
   ) {}
-
+  public form: Object = {components: []};
+  onChange(event) {
+    console.log(event.form);
+  }
   ngOnInit() {
     this.salepageService.getAdminEditor('about_page').subscribe(data => {
       this.htmlabout = data.map(e => {
