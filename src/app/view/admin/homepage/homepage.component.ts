@@ -67,7 +67,7 @@ export class HomepageComponent implements OnInit {
       this.setupcode(this.htmlservice[0].html, 'service_page');
     });
     this.user = this.authenticationService.currentUserValue.role;
-    console.log(this.user)
+    console.log(this.user);
   }
   setStep(index: number) {
     this.step = index;

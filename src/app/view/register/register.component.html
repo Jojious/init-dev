@@ -1,65 +1,92 @@
-<mat-toolbar class="app-header">
-  <div><a href="#" target="_blank" class="positronx">Websalepage</a></div>
+<mat-toolbar>
+  <div>
+    <a href="#" target="_blank" class="positronx navbar-brand">
+      <img
+        src="../../../assets/img/logo-small.png"
+        width="auto"
+        height="50"
+        alt=""
+      />
+    </a>
+  </div>
   <span class="nav-tool-items positronx">
-    <a mat-button routerLink="/login" routerLinkActive="active">Log in</a>
     <a
       mat-button
-      mat-raised-button
-      routerLink="/register"
+      style="color: gray;"
+      routerLink="/"
       routerLinkActive="active"
-      >Register</a
+      ><mat-icon aria-hidden="false" aria-label="Example home icon" class="icon"
+        >close</mat-icon
+      ></a
     >
   </span>
 </mat-toolbar>
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="container">
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
+      <mat-card-title style="color: #343350"><h1>Sign Up</h1></mat-card-title>
+      <mat-card-subtitle style="color: #343350"
+        >Already have an account? <a href="/login">Log In</a>
+      </mat-card-subtitle>
     </mat-card-header>
-
-    <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <mat-card-content>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" formControlName="username" />
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            formControlName="password"
-            placeholder="Password"
-            [type]="hide ? 'password' : 'text'"
-          />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Tel" formControlName="tel" />
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="LINE ID" formControlName="line" />
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="E-mail" formControlName="email" />
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="ผู้แนะนำ" formControlName="recomment" />
-        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input  matInput  placeholder="Username" formControlName="username" >
+       </mat-form-field>
+       <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="password"
+          placeholder="Password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="repassword"
+          placeholder="Re-Password"
+          [type]="rehide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="rehide = !rehide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="rehide"
+        >
+          <mat-icon>{{ rehide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+       <mat-form-field appearance="outline">
+          <mat-label>Tel.</mat-label>
+          <input  matInput  placeholder="Tel" formControlName="tel">
+       </mat-form-field>
+       <mat-form-field appearance="outline">
+          <mat-label>LINE ID</mat-label>
+          <input  matInput  placeholder="LINE" formControlName="line">
+       </mat-form-field>
+       <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input  matInput  placeholder="Email" formControlName="email">
+       </mat-form-field>
+       <mat-form-field appearance="outline">
+          <mat-label>ผู้แนะนำ</mat-label>
+          <input  matInput  placeholder="แนะนำ" formControlName="recomment">
+       </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block">
-        Register
-      </button>
+      <button type="button" class="btn btn-outline-primary">CREATE ACCOUNT</button>
     </form>
   </mat-card>
 </div>

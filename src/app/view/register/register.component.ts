@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   returnUrl: string;
   error = '';
   hide = true;
+  rehide = true;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+      repassword: ['', Validators.required],
       tel: ['', Validators.required],
       line: ['', Validators.required],
       email: ['', Validators.required],

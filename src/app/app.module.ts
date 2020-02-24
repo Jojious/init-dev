@@ -30,6 +30,8 @@ import { HomeaboutComponent } from './components/homepage/homeabout/homeabout.co
 import { HomeproductComponent } from './components/homepage/homeproduct/homeproduct.component';
 import { HomeserviceComponent } from './components/homepage/homeservice/homeservice.component';
 import { MatFormioModule } from 'angular-material-formio';
+import { DefaultComponent } from './layout/default/default.component';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { MatFormioModule } from 'angular-material-formio';
     HomeaboutComponent,
     HomeproductComponent,
     HomeserviceComponent,
+    DefaultComponent
   ],
   imports: [
     BrowserModule,

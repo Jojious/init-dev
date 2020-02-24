@@ -8,11 +8,11 @@
 
 .sidenav {
   width: 200px;
-  background-color: #80ace3;
+  background-color: #51B9AF;
 }
 
 .sidenav .mat-toolbar {
-  background: #4878ac;
+  background: #008A91;
 }
 
 .mat-toolbar.mat-primary {
@@ -22,7 +22,8 @@
 }
 
 .admin-header {
-  background-color: #4878ac;
+  background-color: #008A91;
+  position: relative;
   width: 100% !important;
   color: white;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),

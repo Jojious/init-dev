@@ -34,46 +34,46 @@ export class HomeComponent implements OnInit {
     console.log(event.form);
   }
   ngOnInit() {
-    this.salepageService.getAdminEditor('about_page').subscribe(data => {
-      this.htmlabout = data.map(e => {
-        return {
-          ...(e.payload.doc.data() as {})
-        } as EmailEditor;
-      });
-      this.setupcode(this.htmlabout[0].html, 'about_page');
-    });
-    this.salepageService.getAdminEditor('contact_page').subscribe(data => {
-      this.htmlcontact = data.map(e => {
-        return {
-          ...(e.payload.doc.data() as {})
-        } as EmailEditor;
-      });
-      this.setupcode(this.htmlcontact[0].html, 'contact_page');
-    });
-    this.salepageService.getAdminEditor('product_page').subscribe(data => {
-      this.htmlproduct = data.map(e => {
-        return {
-          ...(e.payload.doc.data() as {})
-        } as EmailEditor;
-      });
-      this.setupcode(this.htmlproduct[0].html, 'product_page');
-    });
-    this.salepageService.getAdminEditor('service_page').subscribe(data => {
-      this.htmlservice = data.map(e => {
-        return {
-          ...(e.payload.doc.data() as {})
-        } as EmailEditor;
-      });
-      this.setupcode(this.htmlservice[0].html, 'service_page');
-    });
-    this.salepageService.getsalepageowner('wisa').subscribe(data => {
-      this.htmlsalepage = data.map(e => {
-        return {
-          ...(e.payload.doc.data() as {})
-        } as SalePage;
-      });
-      this.setupcode(this.htmlsalepage[0].html, 'salepage');
-    });
+    // this.salepageService.getAdminEditor('about_page').subscribe(data => {
+    //   this.htmlabout = data.map(e => {
+    //     return {
+    //       ...(e.payload.doc.data() as {})
+    //     } as EmailEditor;
+    //   });
+    //   this.setupcode(this.htmlabout[0].html, 'about_page');
+    // });
+    // this.salepageService.getAdminEditor('contact_page').subscribe(data => {
+    //   this.htmlcontact = data.map(e => {
+    //     return {
+    //       ...(e.payload.doc.data() as {})
+    //     } as EmailEditor;
+    //   });
+    //   this.setupcode(this.htmlcontact[0].html, 'contact_page');
+    // });
+    // this.salepageService.getAdminEditor('product_page').subscribe(data => {
+    //   this.htmlproduct = data.map(e => {
+    //     return {
+    //       ...(e.payload.doc.data() as {})
+    //     } as EmailEditor;
+    //   });
+    //   this.setupcode(this.htmlproduct[0].html, 'product_page');
+    // });
+    // this.salepageService.getAdminEditor('service_page').subscribe(data => {
+    //   this.htmlservice = data.map(e => {
+    //     return {
+    //       ...(e.payload.doc.data() as {})
+    //     } as EmailEditor;
+    //   });
+    //   this.setupcode(this.htmlservice[0].html, 'service_page');
+    // });
+    // this.salepageService.getsalepageowner('wisa').subscribe(data => {
+    //   this.htmlsalepage = data.map(e => {
+    //     return {
+    //       ...(e.payload.doc.data() as {})
+    //     } as SalePage;
+    //   });
+    //   this.setupcode(this.htmlsalepage[0].html, 'salepage');
+    // });
   }
   setupcode(code: string, type: string) {
     switch (type) {

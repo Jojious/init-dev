@@ -15,6 +15,7 @@ import { CheckregisterComponent } from '@app/view/admin/checkregister/checkregis
 import { HomepageComponent } from '@app/view/admin/homepage/homepage.component';
 import { SalepageComponent as AdminSalePage, DialogDataExampleDialog } from '@app/view/admin/salepage/salepage.component';
 import { FileComponent } from '@app/view/admin/file/file.component';
+import { ProgressComponent } from '@app/components/progress/progress.component';
 import { SettingComponent } from '@app/view/admin/setting/setting.component';
 import { EditorComponent } from '@app/components/homepage/editor/editor.component';
 import { EditorComponent as SalePageEditor } from '@app/components/salepage/editor/editor.component';
@@ -32,6 +33,7 @@ import { EditorComponent as SalePageEditor } from '@app/components/salepage/edit
     EditorComponent,
     SalePageEditor,
     DialogDataExampleDialog,
+    ProgressComponent
   ],
   imports: [
     CommonModule,
