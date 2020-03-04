@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SalepageService } from '@app/services/nosql/salepage.service';
-
+export interface Section {
+  name: string;
+  updated: Date;
+}
 @Component({
   selector: 'app-file',
   templateUrl: './file.component.html',
@@ -8,6 +11,20 @@ import { SalepageService } from '@app/services/nosql/salepage.service';
 })
 export class FileComponent implements OnInit {
   files: any[] = [];
+  folders: Section[] = [
+    {
+      name: 'Photos',
+      updated: new Date('1/1/16'),
+    },
+    {
+      name: 'Recipes',
+      updated: new Date('1/17/16'),
+    },
+    {
+      name: 'Work',
+      updated: new Date('1/28/16'),
+    }
+  ];
 
   constructor(private service: SalepageService) {}
 
@@ -35,9 +52,6 @@ export class FileComponent implements OnInit {
     this.files.splice(index, 1);
   }
 
-  /**
-   * Simulate the upload process
-   */
   uploadFilesSimulator(index: number) {
     setTimeout(() => {
       if (index === this.files.length) {

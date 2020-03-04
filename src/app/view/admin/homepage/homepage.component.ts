@@ -4,6 +4,19 @@ import { EmailEditor, TypeSalePage } from '@app/models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/services';
+import { BuilderBlock } from '@builder.io/angular';
+import { GetContentOptions } from '@builder.io/sdk';
+
+@BuilderBlock({
+  tag: 'custom-thing',
+  name: 'Custom thing',
+  inputs: [
+    {
+      name: 'name',
+      type: 'string',
+    },
+  ],
+})
 
 @Component({
   selector: 'app-homepage',
@@ -25,6 +38,13 @@ export class HomepageComponent implements OnInit {
   product = 'product_page';
   step = 0;
   user: string;
+  data = {
+    property: 'hello',
+    fn: (text: string) => alert(text),
+  };
+  options: GetContentOptions = {
+    cacheSeconds: 1
+  };
 
   constructor(
     private salepageService: SalepageService,
@@ -106,5 +126,12 @@ export class HomepageComponent implements OnInit {
   }
   onclick() {
     alert('TEst Edit');
+  }
+  load(event: any) {
+    console.log('load', event);
+  }
+
+  error(event: any) {
+    console.log('error', event);
   }
 }

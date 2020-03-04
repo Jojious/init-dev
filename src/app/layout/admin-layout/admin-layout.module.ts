@@ -19,6 +19,8 @@ import { ProgressComponent } from '@app/components/progress/progress.component';
 import { SettingComponent } from '@app/view/admin/setting/setting.component';
 import { EditorComponent } from '@app/components/homepage/editor/editor.component';
 import { EditorComponent as SalePageEditor } from '@app/components/salepage/editor/editor.component';
+import { BuilderModule } from '@builder.io/angular';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { EditorComponent as SalePageEditor } from '@app/components/salepage/edit
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     EmailEditorModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FlexLayoutModule,
+    BuilderModule.forRoot('54cfa1b677c64ea5a3df1c2692fa46b9')
   ],
   entryComponents: [DialogBoxComponent, DialogDataExampleDialog]
 })

@@ -14,7 +14,7 @@ export class EditorComponent implements OnInit {
   typeEditor: string;
   createby = 'Giogius';
   selected: string;
-  @ViewChild(EmailEditorComponent, {static: false}) emailEditor: any;
+  @ViewChild(EmailEditorComponent) emailEditor: any;
   // private emailEditor: EmailEditorComponent;
   salepage: Salepage[];
   constructor(private route: ActivatedRoute, private router: Router, private salepageService: SalepageService) { }

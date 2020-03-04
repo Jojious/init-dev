@@ -4,14 +4,15 @@
     class="sidenav"
     fixedInViewport
     attr.role="navigation"
+    [opened]="screenWidth> 640"
     mode="side"
-    opened="true"
   >
     <mat-toolbar color="primary"><img src="../../../assets/img/logo-small.png" alt="logo" style="height: 50px; width: 50px;"></mat-toolbar>
     <app-side-nav></app-side-nav>
   </mat-sidenav>
   <mat-sidenav-content >
     <mat-toolbar class="admin-header">
+      <button mat-icon-button (click)="drawer.toggle()" style="color: white;"><mat-icon>menu</mat-icon></button>
       {{user}} Page
       <span class="toolbar-spacer"></span>
       <button mat-button (click)="gotohome()">

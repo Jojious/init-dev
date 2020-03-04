@@ -1,5 +1,5 @@
 .container {
-  width: 450px;
+  width: 100%;
   height: 250px;
   padding: 2rem;
   text-align: center;
@@ -130,9 +130,24 @@
 
 .content{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   height: 100vh;
   margin: 0px;
+}
+.contentList{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+}
+
+.body {
+  padding: 10px;
+}
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
 }

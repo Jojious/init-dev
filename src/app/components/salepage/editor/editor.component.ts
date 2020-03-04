@@ -13,7 +13,7 @@ import { Salepage, Codehtml, TypeSalePage , EmailEditor } from '@app/models';
 export class EditorComponent implements OnInit {
   typeEditor: string;
   selected: string;
-  @ViewChild(EmailEditorComponent, {static: false}) emailEditor: any;
+  @ViewChild(EmailEditorComponent) emailEditor: any;
   salepage: Salepage[];
   constructor(private route: ActivatedRoute, private router: Router, private salepageService: SalepageService) { }
 
